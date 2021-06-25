@@ -59,7 +59,7 @@
 			<?php } ?>
 
 	<!--TABLA DE VIDEOJUEGOS-->
-	<table border="1" id="juegos" align="center">
+	<table id="juegos" align="center">
 		<thead>
 			<th>Nombre Juego</th>
 			<th>Genero</th>
