@@ -1,9 +1,9 @@
 <?php
+	include 'user.php';
 	include('cartClass.php');
 	require_once('gameClass.php');
 	require_once('action.php');
 	session_start();
-	//session_destroy();
 	$action = new Action();
 	$cart = new Cart();
 	$gameList = $action->showGameList();
@@ -42,11 +42,16 @@
 	<meta charset="UTF-8">
 	<title>Catalogo de videojuegos</title>
 </head>
+<?php if(isset($_SESSION['user'])){ ?>
 <body>
-	<h1 id="titulo">Indie World</h1>
+	<h1 id="titulo">Catalogo de videojuegos</h1>
 		<ul id="menu">
 			<li><a href="">Inicio</a></li>
-			<li><a href="">Iniciar sesión</a></li>
+			<li>
+				<a href="userDetails.php">
+					<?php echo $_SESSION['user']->getuserName() ; ?>
+				</a>
+			</li>
 			<li><a href="cart.php?view">Carrito</a></li>
 		</ul>
 	<?php foreach ($gameList as $game) { ?>
@@ -70,4 +75,14 @@
 		</div>
 	<?php }?>
 </body>
+<?php } else { ?>
+<body>
+	<ul id="menu">
+		<li><a href="">Inicio</a></li>
+		<li><a href="">Iniciar sesión</a></li>
+	</ul>
+	<h2>debes iniciar sesion para ver el catalogo</h2>
+	<a href="index.php">volver</a>
+</body>
+<?php }?>
 </html>
