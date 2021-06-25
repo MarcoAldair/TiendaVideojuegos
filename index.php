@@ -40,7 +40,7 @@
 				</li>
 				<li>
 					<a href="?close" class="nav-menu-item">
-						<img src="icons/out.png" alt="Log Out" width="50px" height="30px">
+						<img src="icons/out.png" alt="Log Out" width="50px" height="50px" id="imagenSalir">
 					</a>
 				</li>
 				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
