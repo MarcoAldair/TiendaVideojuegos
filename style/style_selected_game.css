@@ -99,6 +99,13 @@ ul li a:hover{
 
 .precio{
 	text-align: center;
+  font-size: 18px;
+  margin: 10px;
+}
+.precio a{
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #4CAF50;
 }
 
 .button{
