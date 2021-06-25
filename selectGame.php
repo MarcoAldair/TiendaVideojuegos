@@ -46,26 +46,42 @@
 <body>
 
 	<!--MENU-->
-	
-	<h1 id="titulo">Indie World</h1>
-		<ul id="menu">
-			<li><a href="index.php">Inicio</a></li>
-			<li><a href="">Iniciar sesión</a></li>
-			<li><a href="cart.php">Carrito</a></li>
-		</ul>
+	<div class="cabecera">
+		<div class="nav">
+			<a href="index.php" class="logo">Indie World</a>
+			<ul class="nav-menu">
+				<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
+				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
+				<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
+			</ul>
+			
+		</div>
+	</div>
 	<!---->
-	<div id="personal">
 	<div id="tituloGame">
 		<h1><?php echo $game->getGameName(); ?></h1></div>
+
+
+	<div class="acerca-de"><h2>Mira como se ve...</h2></div>
+
+
 	<div id="vistazo">
 		<?php echo '<img width="850" src="data:image;base64,'.base64_encode($game->getimagenes() ).' "/>'; ?>
 	</div>
 
-	<div id="icon">
-		<?php echo '<img width="350" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?>
+
+	<div class="acerca-de"><h2>Acerca de este Juego...</h2></div>
+
+
+	<div class="descripcion">
+		<div class="image"><?php echo '<img width="350" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?></div>
+		<div class="texto"><?php echo $game->getdescripcion(); ?></div>
 	</div>
+
+
+	<!--AÑADIR AL CARRITO-->
 	<?php if(isset($_SESSION['user'])){ ?>
-	<div id="infor">
+	<div class="precio">
 		<p><strong>Precio: </strong>$<?php echo $game->getprecio(); ?> Dólares</p>
 		<a href="?add&idGame=<?php echo $game->getidGame();?>&
 				gameName=<?php echo $game->getGameName(); ?>&gamePrice=<?php echo $game->getprecio(); ?>" class="button">
@@ -73,14 +89,14 @@
 		</a>
 	</div>
 	<?php }else{ ?>
-		<div id="infor">
+		<div class="precio">
 		<p><strong>Precio: </strong>$<?php echo $game->getprecio(); ?> Dólares</p>
 	</div>
 	<?php }?>
-	<div id="descripcion">
-		<h3>Acerca de este Juego...</h3>
-		<p><td><?php echo $game->getdescripcion(); ?></td></p></div>
-	</div>
-	<a href="index.php">Volver</a>
+
+	<!--BOTON PARA VOLVER-->
+	<form action="index.php" class="">
+		<input type="submit" name="" value="Volver" class="button">
+	</form>
 </body>
 </html>
