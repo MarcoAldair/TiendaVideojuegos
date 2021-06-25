@@ -22,27 +22,41 @@
 	}
 ?>
 <body>
-	<!--MENU DE NAVEGACION-->
+	<!--MENU DE NAVEGACION PRUEBA 2-->
 
-	<h1 id="titulo">Indie World</h1>
-		<ul id="menu">
+	<div class="cabecera">
+		<div class="nav">
+			<a href="#" class="logo">Indie World</a>
+			
+
 			<?php if(isset($_SESSION['user'])){ ?>
-				<li><a href="index.php">Inicio</a></li>
+			<ul class="nav-menu">
+
+				<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
 				<li>
-					<a href="userDetails.php">
+					<a href="userDetails.php" class="nav-menu-item">
 						<?php echo $_SESSION['user']->getuserName() ; ?>
 					</a>
 				</li>
-				<li><a href="?close"><img src="icons/out.png" alt="Log Out" width ="50px" height="50px"></a></li>
-				<li><a href="viewCatalog.php">Catalogo</a></li>
-				<li><a href="cart.php?view">Carrito</a></li>
+				<li><a href="?close" class="nav-menu-item"><img src="icons/out.png" alt="Log Out" width ="50px" height="50px"></a></li>
+				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
+				<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
+			</ul>
+		</div>
+	</div>
+
 			<?php } else { ?>
-				<li><a href="index.php">Inicio</a></li>
-				<li><a href="login.php">Iniciar sesión</a></li>
-				<li><a href="viewCatalog.php">Catalogo</a></li>
-				<li><a href="cart.php?view">Carrito</a></li>
+				<!--*****************-->
+						<ul class="nav-menu">
+							<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
+							<li><a href="login.php" class="nav-menu-item">Iniciar sesión</a></li>
+							<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
+							<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
+						</ul>
+					</div>
+				</div>
+
 			<?php } ?>
-		</ul>
 
 	<!--TABLA DE VIDEOJUEGOS-->
 	<table border="1" id="juegos" align="center">
@@ -68,6 +82,8 @@
 			<?php } ?>
 		</tbody>
 	</table>
-	<a href="uploadGame.php">Subir Nuevo Juego</a>
+	<form action="uploadGame.php" class="newgame">
+		<input type="submit" name="" value="Subir Nuevo Juego" class="button">
+	</form>
 </body>
 </html>
