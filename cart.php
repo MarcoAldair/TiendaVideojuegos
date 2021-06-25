@@ -56,7 +56,7 @@
 				<td><?php echo $cart->getGamePrice() ;?></td>
 				<td><?php echo $cart->getGameQuantity() ;?></td>
 				<td><?php echo $cart->getGameTotal() ;?></td>
-				<td><a href="?delete=<?php echo $cart->getGameId(); ?>"><img src="imagen/delete.png" height = "26"></a></td>
+				<td><a href="?delete=<?php echo $cart->getGameId(); ?>"><img src="icons/delete.png" height = "26"></a></td>
 			</tr>
 			<?php }?>
 		</tbody>
