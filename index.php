@@ -22,7 +22,7 @@
 	}
 ?>
 <body>
-	<!--MENU-->
+	<!--MENU DE NAVEGACION-->
 
 	<h1 id="titulo">Indie World</h1>
 		<ul id="menu">
