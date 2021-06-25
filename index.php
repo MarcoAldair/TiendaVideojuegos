@@ -12,6 +12,14 @@
 	session_start();
 	$action = new Action();
 	$gameList = $action->showGameList();
+
+	if(isset($_GET['close'])){
+		if(isset($_SESSION['user'])){
+			session_unset();
+			session_destroy();
+			header('location: index.php');
+		}
+	}
 ?>
 <body>
 	<!--MENU-->
@@ -25,6 +33,7 @@
 						<?php echo $_SESSION['user']->getuserName() ; ?>
 					</a>
 				</li>
+				<li><a href="?close"><img src="icons/out.png" alt="Log Out" width ="50px" height="50px"></a></li>
 				<li><a href="viewCatalog.php">Catalogo</a></li>
 				<li><a href="cart.php?view">Carrito</a></li>
 			<?php } else { ?>
@@ -50,9 +59,10 @@
 				<td><a href="selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a"><?php echo $game->getGameName(); ?></a></td>
 				<td><?php echo $game->getgenero(); ?></td>
 				<td>$<?php echo $game->getprecio(); ?> Dólares</td>
-				<td><a href="selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a">
-
-					<?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?></a>
+				<td>
+					<a href="selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a">
+						<?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?>
+					</a>
 				</td>
 			</tr>
 			<?php } ?>
