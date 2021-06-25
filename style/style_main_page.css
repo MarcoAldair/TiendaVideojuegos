@@ -78,7 +78,7 @@ table thead{
 table tbody a{
   text-decoration: none;
   font-weight: bold;
-  font-color: #0097CC;
+  color: #0097CC;
 }
 table th{
   padding: 15px;
