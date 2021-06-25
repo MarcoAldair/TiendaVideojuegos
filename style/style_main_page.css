@@ -1,0 +1,66 @@
+/*TITULO*/
+h1{
+  font-family: "Script MT";
+  font-size: 74px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 50;
+  line-height: 22.4px; 
+  color: #0097CC;
+  display: inline-block;
+  float: left;
+}
+/*CUERPO */
+body{
+  margin-left: 6em;
+  margin-right: 6em;
+}
+
+/* MENU DE NAVEGACION */
+#menu {
+  margin-top: 25px;
+  padding: 0;
+  float: right;
+  margin-right: 15px;
+  margin-left: 45em;
+  position: absolute;
+}
+#menu li{
+  display: inline;
+}
+
+#menu li a {
+  font-family: Microsoft YaHei;
+  font-size:25px;
+  text-decoration: none;
+  float:left;
+  padding: 25px;
+  color: #0097CC;
+  font-weight: bolder;
+}
+
+#menu li a:hover {
+  background-color: #0097CC;
+  padding-bottom:16px;
+  color: #fff;
+}
+/*CATALOGO DE JUEGOS*/
+#juegos{
+  top: 300px;
+  width: 80%;
+  margin: auto;
+  font-size: 20px;
+  clear: left;
+  border: 0;
+  border-collapse: collapse;
+  /*border-style : hidden!important;*/
+  border-collapse: separate;
+  text-align: center;
+  border-spacing: 80px 10px;
+}
+#juegos th{
+  font-family: Microsoft YaHei;
+}
+#juegos td{
+  font-family: Microsoft YaHei;
+}

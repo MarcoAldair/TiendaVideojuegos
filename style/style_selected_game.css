@@ -1,0 +1,116 @@
+#tituloGame{
+	font-family: "Script MT";
+	font-size: 38px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 50;
+	line-height: 22.4px; 
+	color: #0097CC;
+	text-align: center;
+	clear: left;
+	padding-top:0.02em;
+	margin: 90em 2em 1em 2em;
+
+}
+#vistazo{
+	display: inline;
+	float: left;
+	margin-left: 3em;
+}
+#icon{
+	float: right;
+	margin-right: 3em;
+}
+
+#infor{
+	float: right;
+	margin-right: 12em;
+}
+
+#infor p{
+	font-family: "Arial";
+	font-size: 18px;
+}
+
+.button{
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 6px;
+}
+.button:hover {
+    background-color: #5dbf61; /* Green */
+    color: white;
+    cursor: pointer;
+}
+
+#descripcion{
+	clear: left;
+	margin-left: 3em;
+	width: 850px;
+	text-align: justify;
+
+	font-family: "Arial";
+	font-size: 18px;
+	line-height: 23pt;
+}
+#descripcion h3{
+	font-family: "Arial";
+	font-size: 25px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 50px;
+	line-height: 22.4px; 
+	color: #000;
+
+	padding-top: 1.5em;
+}
+
+/* MENU DE NAVEGACION */
+#menu {
+  margin-top: 25px;
+  padding: 0;
+  float: right;
+  margin-right: 15px;
+  margin-left: 53em;
+  position: absolute;
+}
+#menu li{
+  display: inline;
+}
+
+#menu li a {
+  font-family: Microsoft YaHei;
+  font-size:25px;
+  text-decoration: none;
+  float:left;
+  padding: 25px;
+  color: #0097CC;
+  font-weight: bolder;
+}
+
+#menu li a:hover {
+  background-color: #0097CC;
+  padding-bottom:16px;
+  color: #fff;
+}
+#titulo{
+  font-family: "Script MT";
+  font-size: 74px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 50;
+  line-height: 22.4px; 
+  color: #0097CC;
+  display: inline-block;
+  float: left;
+}
+body{
+	margin-left: 6em;
+	margin-right: 6em;
+}
