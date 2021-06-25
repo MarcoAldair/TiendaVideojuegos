@@ -38,7 +38,11 @@
 						<?php echo $_SESSION['user']->getuserName() ; ?>
 					</a>
 				</li>
-				<li><a href="?close" class="nav-menu-item"><img src="icons/out.png" alt="Log Out" width ="50px" height="50px"></a></li>
+				<li>
+					<a href="?close" class="nav-menu-item">
+						<img src="icons/out.png" alt="Log Out" width="50px" height="30px">
+					</a>
+				</li>
 				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
 				<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
 			</ul>
