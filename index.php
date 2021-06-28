@@ -27,11 +27,8 @@
 	<div class="cabecera">
 		<div class="nav">
 			<a href="#" class="logo">Indie World</a>
-			
-
 			<?php if(isset($_SESSION['user'])){ ?>
 			<ul class="nav-menu">
-
 				<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
 				<li>
 					<a href="userDetails.php" class="nav-menu-item">
@@ -59,7 +56,6 @@
 						</ul>
 					</div>
 				</div>
-
 			<?php } ?>
 
 	<!--TABLA DE VIDEOJUEGOS-->
@@ -86,8 +82,10 @@
 			<?php } ?>
 		</tbody>
 	</table>
-	<form action="uploadGame.php" class="newgame">
-		<input type="submit" name="" value="Subir Nuevo Juego" class="button">
-	</form>
+	<?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'dev' ){ ?>
+		<form action="uploadGame.php" class="newgame">
+			<input type="submit" name="" value="Subir Nuevo Juego" class="button">
+		</form>
+	<?php } ?>
 </body>
 </html>
