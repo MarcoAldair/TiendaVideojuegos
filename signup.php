@@ -4,6 +4,7 @@
 	if(isset($_POST['signup'])){
 		$user = new User();
 		$action = new Action();
+		$role = $_POST['role'];
 		$userName = $_POST['userName'];
 		$password = $_POST['password'];
 		$email = $_POST['email'];

@@ -50,7 +50,7 @@
 			<input  type="submit" value="Inicar sesion" name="login">
 			</div>
 			<div class="registro">
-			<input  type="submit" value="Registrarse" >
+				<a href="signupS.php">registrarse</a>
 			</div>
 		</form>
 	</div>
