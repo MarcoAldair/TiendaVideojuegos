@@ -44,25 +44,50 @@ require_once('conn.php');
 			return $userList;
 		}
 
-		public function userLogin($userName,$password)
+		public function userLogin($userName,$password,$role)
 		{
 			$db = Db::conectar();
 			$select = $db->prepare('SELECT * 
 									FROM user 
 									WHERE userName=:userName AND password=:password');
-
 			$select->bindValue('userName',$userName);
 			$select->bindValue('password',$password);
 			$select->execute();
 			$tmpUser = $select->fetch();
 			if($tmpUser){
-				$user = new User();
-				$user->setidUser($tmpUser['idUser']);
-				$user->setuserName($tmpUser['userName']);
-				$user->setpassword($tmpUser['password']);
-				$user->setemail($tmpUser['email']);
-				$user->setprofilePic($tmpUser['profilePic']);
-				return $user;
+				if($role == 'admin'){
+					$sel = $db->prepare('SELECT * FROM encargadoverificacion WHERE idUser = :idUser');
+					$sel->bindValue('idUser',$tmpUser['idUser']);
+					$sel->execute();
+					$tmpRole = $sel->fetch();
+					if($tmpRole){$valido = true;}else{$valido = false;}
+				}
+				if($role == 'cus'){
+					$sel = $db->prepare('SELECT * FROM cliente WHERE idUser = :idUser');
+					$sel->bindValue('idUser',$tmpUser['idUser']);
+					$sel->execute();
+					$tmpRole = $sel->fetch();
+					if($tmpRole){$valido = true;}else{$valido = false;}
+				}
+				if($role == 'dev'){
+					$sel = $db->prepare('SELECT * FROM desarrollador WHERE idUser = :idUser');
+					$sel->bindValue('idUser',$tmpUser['idUser']);
+					$sel->execute();
+					$tmpRole = $sel->fetch();
+					if($tmpRole){$valido = true;}else{$valido = false;}
+				}
+				if($valido){
+					$user = new User();
+					$user->setidUser($tmpUser['idUser']);
+					$user->setuserName($tmpUser['userName']);
+					$user->setpassword($tmpUser['password']);
+					$user->setemail($tmpUser['email']);
+					$user->setprofilePic($tmpUser['profilePic']);
+					$user->setrole($role);
+					return $user;
+				}else{
+					return false;
+				}
 			}else{
 				return false;
 			}
