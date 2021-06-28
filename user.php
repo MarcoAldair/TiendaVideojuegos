@@ -9,6 +9,7 @@
 		private $password;
 		private $email;
 		private $profilePic;
+		private $role;
 
 		public function setidUser($idUser){
 			$this->idUser=$idUser;
@@ -44,6 +45,16 @@
 		}
 		public function getprofilePic(){
 			return $this->profilePic;
+		}
+
+		public function setrole($role)
+		{
+			$this->role = $role;
+		}
+
+		public function getrole()
+		{
+			return $this->role;
 		}
 	}
 
