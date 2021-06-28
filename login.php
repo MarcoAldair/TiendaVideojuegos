@@ -5,13 +5,14 @@
 	if(isset($_POST['login'])){
 		$userName = $_POST['userName'];
 		$password = $_POST['password'];
-		$user = $action->userLogin($userName,$password);
+		$role = $_POST['role'];
+		$user = $action->userLogin($userName,$password,$role);
 		if($user){
 			session_start();
 			$_SESSION['user'] = $user;
 			header('location: index.php');
 		}else{
-			$action->alert('Datos Erroneos');
+			$action->alert('Datos Erroneos o tipo equivocado');
 		}
 	}
 ?>
@@ -35,7 +36,15 @@
 				<input type="password" name="password" required>
 				<span></span>
 				<label for="">Contraseña</label>
-				
+			</div>
+			<div class="txt_field">
+				<select name="role">
+					<option value="admin">Admin</option>
+					<option value="cus" selected>Cliente</option>
+					<option value="dev">Desarrollador</option>
+				</select>
+				<span></span>
+				<label for="">Tipo</label>
 			</div>
 			<div class="sesion">
 			<input  type="submit" value="Inicar sesion" name="login">
