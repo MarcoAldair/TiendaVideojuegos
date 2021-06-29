@@ -34,6 +34,13 @@
 					<a href="userDetails.php" class="nav-menu-item">
 						<?php echo $_SESSION['user']->getuserName() ; ?>
 					</a>
+					
+					<!--SUBMENU-->
+					<ul class="nav-menu">
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Editar Perfil</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 2</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 3</a></li>
+					</ul>
 				</li>
 				<li>
 					<a href="?close" class="nav-menu-item">
@@ -51,6 +58,12 @@
 						<ul class="nav-menu">
 							<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
 							<li><a href="login.php" class="nav-menu-item">Iniciar sesión</a></li>
+							<!--SUBMENU-->
+								<ul class="nav-menu">
+									<li class="nav-menu-item"><a href="#" class="submenu-item">Editar Perfil</a></li>
+									<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 2</a></li>
+									<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 3</a></li>
+								</ul>
 							<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
 							<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
 						</ul>
