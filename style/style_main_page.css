@@ -123,3 +123,23 @@ table tr:last-child{
     margin: 0 auto;
     text-align: center;
 }
+/*Submenu*/
+.nav-menu li ul{
+  background-color: #0097CC;
+  display: none;
+  position: absolute;
+  min-width: 205px;
+  padding: 0 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding-bottom: 6px;
+}
+
+.nav-menu li:hover > ul{
+  display: block;
+  margin: 0px;
+}
+
+.submenu-item{
+  font-size: 18px;
+}
