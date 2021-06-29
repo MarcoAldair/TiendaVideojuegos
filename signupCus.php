@@ -88,7 +88,7 @@
             <div class="txt_field">
                 <input type="text" maxlength="10" required name="telefono">
                 <span></span>
-                <label for=""> telefono</label>
+                <label for=""> Telefono</label>
             </div>
 			<div class="registro">
 			    <input  type="submit" value="Registrar" name="signup">
