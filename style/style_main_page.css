@@ -26,8 +26,14 @@ body{
   justify-content: space-between;
 }
 
-ul li a, .logo{
+.logo{
   font-family: Script MT, sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+ul li a {
+  font-family: sans-serif;
   color: white;
   text-decoration: none;
 }
