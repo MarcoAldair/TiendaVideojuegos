@@ -5,27 +5,22 @@
   font-family: "Poppins", sans-serif;
 }
 body{
-  margin: 0;
-  padding: 0;
-  background-image: url(../imagen/fondo_login.jpg);
-  height: 100vh;
-  background-size: cover; 
+  background-size: cover;
+  background-attachment: fixed;
+  background-image: url(../imagen/fondo_login.png);
   background-repeat: no-repeat;
-  background-position: center;
-  overflow: hidden;
-
+  background-position: center center;
 }
 .center{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
   width: 400px;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
+
 .center h1{
+  margin-top: 35px;
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid silver;
@@ -33,6 +28,9 @@ body{
 .center form{
   padding: 0 40px;
   box-sizing: border-box;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 form .txt_field, .corr{
   position: relative;
@@ -122,6 +120,10 @@ form .txt_field, .corr{
   font-weight: 700;
   cursor: pointer;
   outline: none;
+  margin-bottom: 25px;
+}
+.sesion{
+  margin-left: 38px;
 }
 .registro input[type="submit"]{
   width: 50%;
@@ -135,6 +137,31 @@ form .txt_field, .corr{
   font-weight: 700;
   cursor: pointer;
   outline: none;
+  margin-bottom: 35px;
+}
+.registro{
+  margin-left: 38px;
+}
+
+.registro1{
+   font-family: sans-serif;
+   font-size: 18px;
+   font-weight: bold;
+   padding: 15px 18px;
+   margin: 0 auto;
+   background-color: #2691d9;
+   color: #e9f4fb;
+   text-decoration: none;
+
+   border-radius: 25px;
+}
+
+.registro1:hover {
+  border-color: #2691d9;
+  transition: .5s;
+}
+.NuevoUsuario{
+  text-align: center;
 }
 
 input[type="submit"]:hover{
@@ -153,4 +180,51 @@ input[type="submit"]:hover{
 }
 .signup_link a:hover{
   text-decoration: underline;
+}
+
+.caja{
+  margin:20px auto 40px auto; 
+   border:1px solid #d9d9d9;
+   height:30px;
+   overflow: hidden;
+   width: 230px;
+   position:relative;
+}
+
+select {
+   background: transparent;
+   border: none;
+   font-size: 16px;
+   height: 30px;
+   padding: 5px;
+   width: 250px;
+}
+select:focus{ outline: none;}
+
+/*ARCHIVO: signupS.php*/
+
+.tipo{
+   font-family: sans-serif;
+   font-size: 18px;
+   font-weight: bold;
+   padding: 15px 18px;
+   margin: 0 auto;
+   background-color: #2691d9;
+   color: #e9f4fb;
+   text-decoration: none;
+
+   border-radius: 25px;
+}
+
+.tipo:hover {
+  border-color: #2691d9;
+  transition: .5s;
+}
+nav{
+  text-align: center;
+  padding: 50px;
+}
+.type-user{
+  text-align: center;
+  margin-top: 220px;
 }
