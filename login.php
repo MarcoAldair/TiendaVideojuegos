@@ -44,13 +44,14 @@
 					<option value="dev">Desarrollador</option>
 				</select>
 				<span></span>
-				<label for="">Tipo</label>
+				<label for=""></label>
 			</div>
 			<div class="sesion">
-			<input  type="submit" value="Inicar sesion" name="login">
+				<input type="submit" value="Iniciar sesion" name="login">
 			</div>
-			<div class="registro">
-				<a href="signupS.php">registrarse</a>
+
+			<div class="NuevoUsuario">
+				<a href="signupS.php" class="registro1">Registrarse</a>
 			</div>
 		</form>
 	</div>
