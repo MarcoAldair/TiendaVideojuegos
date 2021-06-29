@@ -5,7 +5,6 @@ require_once('conn.php');
 	 */
 	class Action
 	{
-		
 		public function insert($user)
 		{
 			$db=Db::conectar();
@@ -15,7 +14,12 @@ require_once('conn.php');
 			$insert->bindValue('password',$user->getpassword());
 			$insert->bindValue('email',$user->getemail());
 			$insert->bindValue('profilePic',$user->getprofilePic());
-			$insert->execute();
+			try{
+				$insert->execute();
+				return true;
+			}catch(Exception $e){
+				return false;
+			}
 		}
 
 		public function getcantidad()
@@ -162,39 +166,7 @@ require_once('conn.php');
 			$tmpGame->setimagenes($game['imagenes']);
 			return $tmpGame;
 		}
-		//Carro
 
-		//Clientes
-		public function getcantidadClientes()
-		{
-			$db=Db::conectar();
-		    $q = $db->prepare('SELECT count(*) FROM cliente');
-		    $q->execute();
-		    return $q->fetchColumn();
-		}
-
-		public function insertCus($customer)
-		{
-			$db=Db::conectar();
-			$insert = $db->prepare('INSERT INTO cliente 
-									VALUES (
-										:idCliente, 
-										:nombre, 
-										:apellido1, 
-										:apellido2, 
-										:telefono, 
-										:idUser, 
-										:userName
-									)');
-			$insert->bindValue('idCliente',$customer->getIdCliente());
-			$insert->bindValue('nombre',$customer->getNombre());
-			$insert->bindValue('apellido1',$customer->getApellido1());
-			$insert->bindValue('apellido2',$customer->getApellido2());
-			$insert->bindValue('telefono',$customer->getTelefono());
-			$insert->bindValue('idUser',$customer->getIdUser());
-			$insert->bindValue('userName',$customer->getUserName());
-			$insert->execute();
-		}
 		//Acciones Generales
 		public function alert($msg)
 		{

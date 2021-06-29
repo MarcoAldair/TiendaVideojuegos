@@ -2,6 +2,7 @@
 	require_once('user.php');
 	require_once('action.php');
     require_once('customer.php');
+	require_once('actionCustomer.php');
 	if(isset($_POST['signup'])){
 		$user = new User();
 		$action = new Action();
@@ -16,23 +17,29 @@
 		$user->setemail($email);
 		$user->setprofilePic($profilePic);
         $valueUser = false;
-		$action->insert($user);
-        //Cliente
-        $nombre = $_POST['nombre'];
-        $apellido1 = $_POST['apellido1'];
-        $apellido2 = $_POST['apellido2'];
-        $telefono = $_POST['telefono'];
-        $customer = new customer();
-        $customer->setIdCliente($action->getcantidadClientes()+1);
-        $customer->setNombre($nombre);
-        $customer->setApellido1($apellido1);
-        $customer->setApellido2($apellido2);
-        $customer->setTelefono($telefono);
-        $customer->setIdUser($user->getidUser());
-        $customer->setUserName($userName);
-        $valueCliente = false;
-        $action->insertCus($customer);
-        header('Location:login.php'); 
+		$estado = $action->insert($user);
+		if($estado){
+			//Cliente
+			$actionCus = new actionCustomer();
+			$nombre = $_POST['nombre'];
+			$apellido1 = $_POST['apellido1'];
+			$apellido2 = $_POST['apellido2'];
+			$telefono = $_POST['telefono'];
+			$customer = new customer();
+			$customer->setIdCliente($actionCus->getcantidadClientes()+1);
+			$customer->setNombre($nombre);
+			$customer->setApellido1($apellido1);
+			$customer->setApellido2($apellido2);
+			$customer->setTelefono($telefono);
+			$customer->setIdUser($user->getidUser());
+			$customer->setUserName($userName);
+			$valueCliente = false;
+			$actionCus->insertCus($customer);
+			header('Location:login.php'); 
+		}else{
+			$action->alert('Hubo un error con los datos ingresados');
+		}
+        
 	}
 ?>
 
