@@ -9,7 +9,26 @@
 	include 'clases/action.php';
 	include 'clases/user.php';
 	session_start();
-
+	if(isset($_POST['edit'])){
+		$user = new User();
+		$action = new Action();
+		$userName = $_POST['userName'];
+		$password = $_POST['password'];
+		$email = $_POST['email'];
+		$profilePic = file_get_contents($_FILES['profilePic']['tmp_name']);
+		$user->setidUser($_SESSION['user']->getidUser());
+		$user->setuserName($userName);
+		$user->setpassword($password);
+		$user->setemail($email);
+		$user->setprofilePic($profilePic);
+		if($action->editUser($user)){
+			$id = $_SESSION['user']->getidUser();
+			$role = $_SESSION['user']->getrole();
+			$_SESSION['user'] = $action->getUser($id,$role);
+		}else{
+			$action->alert('Error');
+		}
+	}
 	if(isset($_SESSION['user'])){
 ?>
 <body>
@@ -35,6 +54,7 @@
 				<label for="">Correo Electronico</label>		
 			</div>
 			<label for="">Imagen de perfil</label>
+			<div class="image"><?php echo '<img width="200" src="data:image;base64,'.base64_encode($_SESSION['user']->getprofilePic() ).' "/>'; ?></div>
 			<br>
 			<br>
 			<div class="archivo">
@@ -43,7 +63,8 @@
 			<br>
 			<br>
 			<div class="sesion">
-				<input  type="submit" value="Modificar" name="signup">
+				<input  type="submit" value="Modificar" name="edit">
+				<a href="index.php">volver</a>
 			</div>
 		</form>
 	</div>

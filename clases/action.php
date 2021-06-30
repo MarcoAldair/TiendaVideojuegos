@@ -96,7 +96,48 @@ require_once('conn.php');
 			}
 			
 		}
-
+		public function editUser($user)
+		{
+			$db = Db::conectar();
+			$update = $db->prepare('UPDATE
+										user
+									SET
+										userName =:userName,
+										password =:password,
+										email =:email,
+										profilePic =:profilePic
+									WHERE
+										idUser =:idUser');
+			$update->bindValue('userName',$user->getuserName());
+			$update->bindValue('password',$user->getpassword());
+			$update->bindValue('email',$user->getemail());
+			$update->bindValue('profilePic',$user->getprofilePic());
+			$update->bindValue('idUser',$user->getidUser());
+			try{
+				$update->execute();
+				return true;
+			}catch(Exception $e){
+				return false;
+			}							
+		}
+		public function getUser($id,$role)
+		{
+			$db = Db::conectar();
+			$select = $db->prepare('SELECT * 
+									FROM user 
+									WHERE idUser=:id');
+			$select->bindValue('id',$id);
+			$select->execute();
+			$tmpUser = $select->fetch();
+			$user = new User();
+			$user->setidUser($tmpUser['idUser']);
+			$user->setuserName($tmpUser['userName']);
+			$user->setpassword($tmpUser['password']);
+			$user->setemail($tmpUser['email']);
+			$user->setprofilePic($tmpUser['profilePic']);
+			$user->setrole($role);
+			return $user;
+		}
 		//***************AÑADIDO****************
 		public function showGameList()
 		{
