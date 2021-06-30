@@ -33,7 +33,7 @@
 			<a href="index.php" class="logo">Indie World</a>
 			<ul class="nav-menu">
 				<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
-				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
+				<li><a href="games/viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
 				<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
 			</ul>
 			

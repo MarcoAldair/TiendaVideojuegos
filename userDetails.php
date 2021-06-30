@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Detalles del Usuario</title>
+	<link rel="stylesheet" href="style/style_upload.css">
 </head>
 <?php
 	include 'clases/action.php';
@@ -27,7 +28,7 @@
 				<span></span>
 				<label for="">Contraseña</label>
 			</div>
-			<div class="corr">
+			<div class="txt_field">
 				<input type="email" name="email" 
 				value="<?php echo $_SESSION['user']->getemail(); ?>" required>
 				<span></span>
@@ -41,7 +42,7 @@
 			</div>
 			<br>
 			<br>
-			<div class="registro">
+			<div class="sesion">
 				<input  type="submit" value="Modificar" name="signup">
 			</div>
 		</form>
@@ -51,7 +52,9 @@
 <?php } else {  ?>
 <body>
 <h1>Necesitar haber iniciado sesion</h1>
+
 <a href="index.php"> volver</a>	
+
 </body>
 <?php }  ?>
 
