@@ -7,9 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="style/style_cart.css">
 </head>
 <?php
-	include('cartClass.php');
-	require_once('gameClass.php');
-	require_once('action.php');
+	include('clases/cartClass.php');
+	require_once('clases/gameClass.php');
+	require_once('clases/action.php');
 	$action = new Action();
 	session_start();
 	if(isset($_GET['delete'])){

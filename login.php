@@ -1,6 +1,6 @@
 <?php
-	include 'action.php';
-	include 'user.php';
+	include 'clases/action.php';
+	include 'clases/user.php';
 	$action = new Action();
 	if(isset($_POST['login'])){
 		$userName = $_POST['userName'];

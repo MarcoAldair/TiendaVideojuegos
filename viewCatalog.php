@@ -1,8 +1,8 @@
 <?php
-	include 'user.php';
-	include('cartClass.php');
-	require_once('gameClass.php');
-	require_once('action.php');
+	include 'clases/user.php';
+	include('clases/cartClass.php');
+	require_once('clases/gameClass.php');
+	require_once('clases/action.php');
 	session_start();
 	$action = new Action();
 	$cart = new Cart();

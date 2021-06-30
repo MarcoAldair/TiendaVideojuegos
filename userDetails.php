@@ -4,11 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Detalles del Usuario</title>
 </head>
-
-
 <?php
-	include 'action.php';
-	include 'user.php';
+	include 'clases/action.php';
+	include 'clases/user.php';
 	session_start();
 
 	if(isset($_SESSION['user'])){

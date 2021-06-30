@@ -1,6 +1,6 @@
 <?php
-	require_once('gameClass.php');
-	require_once('action.php');
+	require_once('clases/gameClass.php');
+	require_once('clases/action.php');
 	if(isset($_POST['upload'])){
 		$game = new Game();
 		$action = new Action();

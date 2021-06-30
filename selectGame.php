@@ -1,7 +1,7 @@
 <?php
-	require_once('cartClass.php');
-	require_once('action.php');
-	require_once('gameClass.php');
+	require_once('clases/cartClass.php');
+	require_once('clases/action.php');
+	require_once('clases/gameClass.php');
 	session_start();
 	$action = new Action();
 	$game = new Game();

@@ -6,9 +6,9 @@
 	<link rel="stylesheet" href="style/style_main_page.css">
 </head>
 <?php
-	include 'user.php';
-	require_once('action.php');
-	require_once('gameClass.php');
+	include 'clases/user.php';
+	require_once('clases/action.php');
+	require_once('clases/gameClass.php');
 	session_start();
 	$action = new Action();
 	$gameList = $action->showGameList();
@@ -36,40 +36,58 @@
 					</a>
 					
 					<!--SUBMENU-->
+					<?php if($_SESSION['user']->getrole() == 'dev'){ ?>
+					<ul class="nav-menu">
+						<li class="nav-menu-item"><a href="userDetails.php" class="submenu-item">Editar Usuario</a></li>
+						<li class="nav-menu-item"><a href="viewDevGames.php" class="submenu-item">Juegos Subidos</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">---</a></li>
+					</ul>
+					<?php } ?>
+					<?php if($_SESSION['user']->getrole() == 'cus'){ ?>
 					<ul class="nav-menu">
 						<li class="nav-menu-item"><a href="#" class="submenu-item">Editar Perfil</a></li>
-						<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 2</a></li>
-						<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 3</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Juegos Adquiridos</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">---</a></li>
 					</ul>
+					<?php } ?>
+					<?php if($_SESSION['user']->getrole() == 'admin'){ ?>
+					<ul class="nav-menu">
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Editar Perfil</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Juegos Subidos</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">---</a></li>
+					</ul>
+					<?php } ?>
 				</li>
 				<li>
 					<a href="?close" class="nav-menu-item">
 						<img src="icons/out.png" alt="Log Out" width="50px" height="50px" id="imagenSalir">
 					</a>
 				</li>
+				<?php if($_SESSION['user']->getrole() == 'cus'){ ?>
 				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
 				<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>
 
 			<?php } else { ?>
 				<!--*****************-->
-						<ul class="nav-menu">
-							<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
-							<li><a href="login.php" class="nav-menu-item">Iniciar sesión</a>
-							<!--SUBMENU-->
-								<ul class="nav-menu">
-									<li class="nav-menu-item"><a href="#" class="submenu-item">Editar Perfil</a></li>
-									<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 2</a></li>
-									<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 3</a></li>
-								</ul>
-							</li>
-							<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
-							<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
-						</ul>
-					</div>
-				</div>
+			<ul class="nav-menu">
+				<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
+				<li><a href="login.php" class="nav-menu-item">Iniciar sesión</a>
+				<!--SUBMENU-->
+					<ul class="nav-menu">
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Editar Perfil</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 2</a></li>
+						<li class="nav-menu-item"><a href="#" class="submenu-item">Opcion 3</a></li>
+					</ul>
+				</li>
+				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
+				<li><a href="cart.php?view" class="nav-menu-item">Carrito</a></li>
+			</ul>
+		</div>
+	</div>
 			<?php } ?>
 
 	<!--TABLA DE VIDEOJUEGOS-->

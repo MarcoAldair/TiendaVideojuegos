@@ -1,6 +1,6 @@
 <?php
-	require_once('user.php');
-	require_once('action.php');
+	require_once('clases/user.php');
+	require_once('clases/action.php');
 	if(isset($_POST['signup'])){
 		$user = new User();
 		$action = new Action();
