@@ -143,7 +143,7 @@ require_once('conn.php');
 
 			$insert->bindValue('descripcion',$game->getdescripcion());
 			$insert->execute();
-			header('location:../ index.php');
+			header('location: index.php');
 		}
 
 		public function obtenerJuego($idGame)
