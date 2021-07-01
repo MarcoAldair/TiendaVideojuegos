@@ -36,7 +36,7 @@
                         <?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?>
                     </a>
                 </td>
-                <td> <a href="">Modificar</a> </td>
+                <td> <a href="modifyGame.php?idGame=<?php echo $game->getidGame();?>&action=a">Modificar</a> </td>
             </tr>
             <?php } ?>
         </tbody>
