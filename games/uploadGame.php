@@ -24,6 +24,7 @@
 		$game->settrailer($trailer);
 		$game->setimagenes($imagenes);
 		$action->uploadGame($game);
+		header('Location:../index.php');
 	}
 ?>
 
