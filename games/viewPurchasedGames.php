@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="../style/style_main_page.css">
 </head>
 <body>
+    <table id="juegos" align="center">
+		<thead>
+			<th>Nombre Juego</th>
+			<th>Genero</th>
+			<th>Precio</th>
+			<th>Portada</th>
+		</thead>
+		<tbody>
 <?php
     require_once('../clases/user.php');
     require_once('../clases/gameClass.php');
@@ -18,14 +26,7 @@
         foreach ($gamesId as $id) {
             $game = $ag->obtenerJuego($id);
 ?>
-    <table id="juegos" align="center">
-		<thead>
-			<th>Nombre Juego</th>
-			<th>Genero</th>
-			<th>Precio</th>
-			<th>Portada</th>
-		</thead>
-		<tbody>
+    
             <tr>
 				<!--<td><?php //echo $game->getidGame(); ?></td>-->
 				<td><a href="games/selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a"><?php echo $game->getGameName(); ?></a></td>
@@ -37,11 +38,12 @@
 					</a>
 				</td>
 			</tr>
-        </tbody>
-    </table>
 <?php
         }
     }
 ?>
+        </tbody>
+    </table>
+    <a href="../index.php">Volver</a>
 </body>
 </html>
