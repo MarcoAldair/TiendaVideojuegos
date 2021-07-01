@@ -149,3 +149,25 @@ table tr:last-child{
 .submenu-item{
   font-size: 18px;
 }
+
+.registro1{
+   font-family: sans-serif;
+   font-size: 18px;
+   font-weight: bold;
+   padding: 15px 18px;
+   margin: 0 auto;
+   background-color: #2691d9;
+   color: #e9f4fb;
+   text-decoration: none;
+
+   border-radius: 25px;
+}
+
+.registro1:hover {
+  border-color: #2691d9;
+  transition: .5s;
+}
+.volver{
+  margin: 50px;
+  text-align: center;
+}
