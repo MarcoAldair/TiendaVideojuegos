@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../style/style_main_page.css">
 </head>
 <body>
+    <h1 align="center">Mis Juegos</h1><br>
     <?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole()=='dev'){ ?>
     <table id="juegos" align="center">
         <thead>
