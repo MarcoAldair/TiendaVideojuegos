@@ -207,6 +207,41 @@ require_once('conn.php');
 			$tmpGame->setimagenes($game['imagenes']);
 			return $tmpGame;
 		}
+		
+		//MODIFICAR JUEGO//
+		public function modifyGame($game)
+		{
+			$db = Db::conectar();
+			$update = $db->prepare('UPDATE
+										videojuegos
+									SET
+										idGame =:idGame,
+										nombre =:nombre,
+										genero =:genero,
+										precio =:precio,
+										idDev =:idDev,
+										icon =:icon,
+										trailer =:trailer,
+										imagenes =:imagenes,
+										Descripcion =:Descripcion
+									WHERE
+										idGame =:idGame');
+			$update->bindValue('idGame',$game->getidGame());
+			$update->bindValue('nombre',$game->getGameName());
+			$update->bindValue('genero',$game->getgenero());
+			$update->bindValue('precio',$game->getprecio());
+			$update->bindValue('idDev',$game->getidDev());
+			$update->bindValue('icon',$game->getportada());
+			$update->bindValue('trailer',$game->gettrailer());
+			$update->bindValue('imagenes',$game->getimagenes());
+			$update->bindValue('Descripcion',$game->getdescripcion());
+			try{
+				$update->execute();
+				return true;
+			}catch(Exception $e){
+				return false;
+			}						
+		}
 
 		//Acciones Generales
 		public function alert($msg)
