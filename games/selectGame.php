@@ -1,6 +1,7 @@
 <?php
 	require_once('../clases/cartClass.php');
 	require_once('../clases/action.php');
+	require_once('../clases/user.php');
 	require_once('../clases/gameClass.php');
 	session_start();
 	$action = new Action();
@@ -49,10 +50,13 @@
 	<div class="cabecera">
 		<div class="nav">
 			<a href="../index.php" class="logo">Indie World</a>
+			
 			<ul class="nav-menu">
 				<li><a href="../index.php" class="nav-menu-item">Inicio</a></li>
+				<?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'cus' ){ ?>
 				<li><a href="viewCatalog.php" class="nav-menu-item">Catalogo</a></li>
 				<li><a href="../cart.php?view" class="nav-menu-item">Carrito</a></li>
+				<?php } ?>
 			</ul>
 			
 		</div>
@@ -78,9 +82,14 @@
 		<div class="texto"><?php echo $game->getdescripcion(); ?></div>
 	</div>
 
+	<div>
+		<video width="848" height="480" controls>
+			<?php echo '<source src="data:image;base64,'.base64_encode($game->gettrailer() ).' " type="video/mp4">'; ?>
+		</video>
+	</div>
 
 	<!--AÑADIR AL CARRITO-->
-	<?php if(isset($_SESSION['user'])){ ?>
+	<?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'cus' ){ ?>
 	<div class="precio">
 		<p><strong>Precio: </strong>$<?php echo $game->getprecio(); ?> Dólares</p>
 		<a href="?add&idGame=<?php echo $game->getidGame();?>&
