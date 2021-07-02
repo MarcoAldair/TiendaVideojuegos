@@ -1,19 +1,24 @@
 <?php
 	require_once('../clases/gameClass.php');
+	require_once('../clases/user.php');
+	require_once('../clases/actionDev.php');
 	require_once('../clases/action.php');
-	if(isset($_POST['upload'])){
+	require_once('../clases/dev.php');
+	session_start();
+	if(isset($_POST['upload']) && isset($_SESSION['user'])){
 		$game = new Game();
-		$action = new Action();
+		$action = new actionDev();
+		$dev = $action->getDev($_SESSION['user']->getidUser());
 		$nombre = $_POST['gameName'];
 		$genero = $_POST['genero'];
 		$precio = $_POST['precio'];
-		$idDev = $_POST['idDev'];
+		$idDev = $dev->getIdDev();
 		$descripcion = $_POST['descripcion'];
 		$icon = file_get_contents($_FILES['portadaTemp']['tmp_name']);
 		$trailer = file_get_contents($_FILES['trailerTemp']['tmp_name']);
 		$imagenes = file_get_contents($_FILES['gameplayTemp']['tmp_name']);
 
-		$game->setidGame($action->getcantidadGames()+1);
+		$game->setidGame(Action::getcantidadGames()+1);
 		$game->setGameName($nombre);
 		$game->setgenero($genero);
 		$game->setprecio($precio);
@@ -56,12 +61,13 @@
 			<span></span>
 			<label for="">Precio</label>
 		</div>
+		<!--  
 		<div class="txt_field">
 			<input type="text" name="idDev" required><br>
 			<span></span>
 			<label for="">idDev</label>
-			
 		</div>
+		-->
 		<div class="txt_field">
 			<input type="text" name="descripcion" required><br>
 			<span></span>
@@ -70,7 +76,7 @@
 		</div>
 		<div class="txt_fiel">
 			<br>
-			<label for="">Subir Portada</label>
+			<label for="">Logo</label>
 			<span></span>
 			<input type="file" accept="image/*" name="portadaTemp" required><br>
 			
@@ -79,12 +85,12 @@
 			<br>
 			<label for="">Trailer</label>
 			<span></span>
-			<input type="file" accept="image/*" name="trailerTemp" required><br>
+			<input type="file" accept="video/*" name="trailerTemp" required><br>
 			
 		</div>
 		<div class="txt_fiel">
 			<br>
-			<label for="">Gameplay</label>
+			<label for="">Portada</label>
 			<span></span>
 			<input type="file" accept="image/*" name="gameplayTemp" required><br>
 			

@@ -53,28 +53,47 @@ class actionDev{
     }
 
     public function showDevGames($id)
-		{
-			$db=Db::conectar();
-			$gameList=[];
-			$select=$db->prepare('SELECT * 
-                                FROM videojuegos
-                                WHERE idDev = :idDev');
-            $select->bindValue('idDev',$id);
-            $select->execute();
-			foreach($select->fetchAll() as $game){
-				$tmpGame = new Game();
-				$tmpGame->setidGame($game['idGame']);
-				$tmpGame->setGameName($game['nombre']);
-				$tmpGame->setgenero($game['genero']);
-				$tmpGame->setprecio($game['precio']);
-				$tmpGame->setidDev($game['idDev']);
-				$tmpGame->setdescripcion($game['Descripcion']);
-				$tmpGame->setportada($game['icon']);
-				$tmpGame->settrailer($game['trailer']);
-				$tmpGame->setimagenes($game['imagenes']);
-				$gameList[] = $tmpGame;
-			}
-			return $gameList;
-		}
+    {
+        $db=Db::conectar();
+        $gameList=[];
+        $select=$db->prepare('SELECT * 
+                            FROM videojuegos
+                            WHERE idDev = :idDev');
+        $select->bindValue('idDev',$id);
+        $select->execute();
+        foreach($select->fetchAll() as $game){
+            $tmpGame = new Game();
+            $tmpGame->setidGame($game['idGame']);
+            $tmpGame->setGameName($game['nombre']);
+            $tmpGame->setgenero($game['genero']);
+            $tmpGame->setprecio($game['precio']);
+            $tmpGame->setidDev($game['idDev']);
+            $tmpGame->setdescripcion($game['Descripcion']);
+            $tmpGame->setportada($game['icon']);
+            $tmpGame->settrailer($game['trailer']);
+            $tmpGame->setimagenes($game['imagenes']);
+            $gameList[] = $tmpGame;
+        }
+        return $gameList;
+    }
+
+    public function uploadGame($game)
+    {
+        $db=Db::conectar();
+        $insert=$db->prepare('INSERT INTO videojuegos VALUES (:idGame, :nombre, :genero, :precio, :idDev, :icon, :trailer, :imagenes, :descripcion)');
+        $insert->bindValue('idGame',$game->getidGame());
+        $insert->bindValue('nombre',$game->getGameName());
+        $insert->bindValue('genero',$game->getgenero());
+        $insert->bindValue('precio',$game->getprecio());
+        $insert->bindValue('idDev',$game->getidDev());
+
+        $insert->bindValue('icon',$game->getportada());
+        $insert->bindValue('trailer',$game->gettrailer());
+        $insert->bindValue('imagenes',$game->getimagenes());
+
+        $insert->bindValue('descripcion',$game->getdescripcion());
+        $insert->execute();
+        header('location:../ index.php');
+    }
 }
 ?>
