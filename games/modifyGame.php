@@ -81,7 +81,11 @@
 					<br>
 
 			<label for="">Imagen del Juego 1</label>
-				<div class="image"><?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->gettrailer() ).' "/>'; ?></div>
+				<div class="image">
+					<video width="320" height="240" controls>
+						<?php echo '<source src="data:image;base64,'.base64_encode($game->gettrailer() ).' " type="video/mp4">'; ?>
+					</video>
+				</div>
 				<br>
 					<div class="archivo">
 						<input type="file" accept="image/*" name="trailer" required>
