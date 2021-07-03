@@ -12,7 +12,11 @@
 	require_once('clases/actionGames.php');
 	session_start();
 	$action = new Action();
-	$gameList = actionGame::showGameListAc();
+	if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'admin'){
+		$gameList = actionGame::showGameList();
+	}else{
+		$gameList = actionGame::showGameListAc();
+	}
 
 	if(isset($_GET['close'])){
 		if(isset($_SESSION['user'])){
@@ -27,7 +31,7 @@
 
 	<div class="cabecera">
 		<div class="nav">
-			<a href="#" class="logo">Indie World</a>
+			<a href="" class="logo">Indie World</a>
 			<?php if(isset($_SESSION['user'])){ ?>
 			<ul class="nav-menu">
 				<li><a href="index.php" class="nav-menu-item">Inicio</a></li>
@@ -83,7 +87,9 @@
 		</div>
 	</div>
 			<?php } ?>
-
+	<?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'admin'){?>
+		
+	<?php }else{?>
 	<!--TABLA DE VIDEOJUEGOS-->
 	<table id="juegos" align="center">
 		<thead>
@@ -107,7 +113,9 @@
 			</tr>
 			<?php } ?>
 		</tbody>
-	</table>
+	</table>	
+	<?php }?>
+	
 	<?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'dev' ){ ?>
 		<form action="games/uploadGame.php" class="newgame">
 			<input type="submit" name="" value="Subir Nuevo Juego" class="button">

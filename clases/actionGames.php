@@ -53,6 +53,27 @@
 			return $tmpGame;
 		}
 
+        public function showGameList()
+		{
+			$db=Db::conectar();
+			$gameList=[];
+			$select=$db->query('SELECT * FROM videojuegos');
+			foreach($select->fetchAll() as $game){
+				$tmpGame = new Game();
+				$tmpGame->setidGame($game['idGame']);
+				$tmpGame->setGameName($game['nombre']);
+				$tmpGame->setgenero($game['genero']);
+				$tmpGame->setprecio($game['precio']);
+				$tmpGame->setidDev($game['idDev']);
+				$tmpGame->setdescripcion($game['Descripcion']);
+				$tmpGame->setportada($game['icon']);
+				$tmpGame->settrailer($game['trailer']);
+				$tmpGame->setimagenes($game['imagenes']);
+				$gameList[] = $tmpGame;
+			}
+			return $gameList;
+		}
+
         public function showGameListAc()
 		{
 			$db=Db::conectar();

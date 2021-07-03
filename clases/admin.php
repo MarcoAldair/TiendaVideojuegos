@@ -1,5 +1,5 @@
 <?php
-class developer{
+class admin{
     private $idEncargado;
     private $nombre;
     private $apellido1 ;
@@ -12,8 +12,8 @@ class developer{
 		return $this->idEncargado;
 	}
 
-	public function setIdEncargado($idDev){
-		$this->idDev = $idEncargado;
+	public function setIdEncargado($idEncargado){
+		$this->idEncargado = $idEncargado;
 	}
 
 	public function getNombre(){
