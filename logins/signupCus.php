@@ -35,7 +35,7 @@
 			$customer->setUserName($userName);
 			$valueCliente = false;
 			$actionCus->insertCus($customer);
-			header('Location:../login.php'); 
+			header('Location:login.php'); 
 		}else{
 			$action->alert('Hubo un error con los datos ingresados');
 		}

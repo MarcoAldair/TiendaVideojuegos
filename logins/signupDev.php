@@ -35,7 +35,7 @@
 			$dev->setUserName($userName);
 			$valueCliente = false;
 			$actionDev->insertDev($dev);
-			header('Location:../login.php'); 
+			header('Location:login.php'); 
 		}else{
 			$action->alert('Hubo un error con los datos ingresados');
 		}
