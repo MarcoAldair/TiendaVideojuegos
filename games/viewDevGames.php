@@ -4,9 +4,6 @@
     require_once('../clases/gameClass.php');
     require_once('../clases/actionDev.php');
     session_start();
-    $actDev = new actionDev();
-    $dev = $actDev->getDev($_SESSION['user']->getidUser());
-    $gameList = $actDev->showDevGames($dev->getIdDev());
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,7 +14,11 @@
 </head>
 <body>
     <h1 align="center">Mis Juegos</h1><br>
-    <?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole()=='dev'){ ?>
+    <?php 
+        if(isset($_SESSION['user']) && $_SESSION['user']->getrole()=='dev'){ 
+        $actDev = new actionDev();
+        $gameList = $actDev->showDevGames($_SESSION['role']->getIdDev());
+    ?>
     <table id="juegos" align="center">
         <thead>
             <th>Nombre Juego</th>

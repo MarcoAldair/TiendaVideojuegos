@@ -85,7 +85,7 @@
 			<br>
 			<label for="">Trailer</label>
 			<span></span>
-			<input type="file" accept="video/*" name="trailerTemp" required><br>
+			<input type="file" accept="video/mp4" name="trailerTemp" required><br>
 			
 		</div>
 		<div class="txt_fiel">

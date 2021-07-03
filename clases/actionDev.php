@@ -86,13 +86,16 @@ class actionDev{
         $insert->bindValue('genero',$game->getgenero());
         $insert->bindValue('precio',$game->getprecio());
         $insert->bindValue('idDev',$game->getidDev());
-
         $insert->bindValue('icon',$game->getportada());
         $insert->bindValue('trailer',$game->gettrailer());
         $insert->bindValue('imagenes',$game->getimagenes());
-
         $insert->bindValue('descripcion',$game->getdescripcion());
         $insert->execute();
+        $insert2 = $db->prepare('INSERT INTO 
+                                    estadovideojuego(idGame) 
+                                VALUES (:idGame)');
+        $insert2->bindValue('idGame',$game->getidGame());
+        $insert2->execute();
         header('location:../ index.php');
     }
 }

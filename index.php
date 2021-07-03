@@ -9,9 +9,10 @@
 	include 'clases/user.php';
 	require_once('clases/action.php');
 	require_once('clases/gameClass.php');
+	require_once('clases/actionGames.php');
 	session_start();
 	$action = new Action();
-	$gameList = $action->showGameList();
+	$gameList = actionGame::showGameListAc();
 
 	if(isset($_GET['close'])){
 		if(isset($_SESSION['user'])){

@@ -72,7 +72,7 @@
 				<label for="descripcion">Descripcion </label>
 			</div>
 
-			<label for="">Portada del juego</label>
+			<label for="">Logo</label>
 				<div class="image"><?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?></div>
 				<br>
 					<div class="archivo">
@@ -80,7 +80,7 @@
 					</div>
 					<br>
 
-			<label for="">Imagen del Juego 1</label>
+			<label for="">Trailer</label>
 				<div class="image">
 					<video width="320" height="240" controls>
 						<?php echo '<source src="data:image;base64,'.base64_encode($game->gettrailer() ).' " type="video/mp4">'; ?>
@@ -88,11 +88,11 @@
 				</div>
 				<br>
 					<div class="archivo">
-						<input type="file" accept="image/*" name="trailer" required>
+						<input type="file" accept="video/mp4" name="trailer" required>
 					</div>
 					<br>
 
-			<label for="">Imagen del Juego 2</label>
+			<label for="">Portada</label>
 				<div class="image"><?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->getimagenes() ).' "/>'; ?></div>
 				<br>
 					<div class="archivo">

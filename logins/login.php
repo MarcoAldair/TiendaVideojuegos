@@ -1,6 +1,11 @@
 <?php
 	include '../clases/action.php';
+	include '../clases/actionDev.php';
+	include '../clases/actionCustomer.php';
+	include '../clases/actionAdmin.php';
 	include '../clases/user.php';
+	include '../clases/dev.php';
+	include '../clases/admin.php';
 	$action = new Action();
 	if(isset($_POST['login'])){
 		$userName = $_POST['userName'];
@@ -10,6 +15,15 @@
 		if($user){
 			session_start();
 			$_SESSION['user'] = $user;
+			if($_SESSION['user']->getrole()=='cus'){
+				$_SESSION['role'] = actionCustomer::getCus($_SESSION['user']->getidUser());
+			}
+			if($_SESSION['user']->getrole()=='admin'){
+				$_SESSION['role'] = actionAdmin::getAdmin($_SESSION['user']->getidUser());
+			}
+			if($_SESSION['user']->getrole()=='dev'){
+				$_SESSION['role'] = actionDev::getDev($_SESSION['user']->getidUser());
+			}
 			header('location: ../index.php');
 		}else{
 			$action->alert('Datos Erroneos o tipo equivocado');
