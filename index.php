@@ -86,7 +86,30 @@
 	</div>
 			<?php } ?>
 	<?php if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'admin'){?>
-		
+	<h1>Juegos por ser aprobados</h1>
+	<table id="juegos" align="center">
+		<thead>
+			<th>Nombre Juego</th>
+			<th>Genero</th>
+			<th>Precio</th>
+			<th>Portada</th>
+		</thead>
+		<tbody>
+			<?php foreach ($gameList as $game) { ?>
+			<tr>
+				<!--<td><?php //echo $game->getidGame(); ?></td>-->
+				<td><a href="games/selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a"><?php echo $game->getGameName(); ?></a></td>
+				<td><?php echo $game->getgenero(); ?></td>
+				<td>$<?php echo $game->getprecio(); ?> Dólares</td>
+				<td>
+					<a href="games/selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a">
+						<?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?>
+					</a>
+				</td>
+			</tr>
+			<?php } ?>
+		</tbody>
+	</table>
 	<?php }else{?>
 	<!--TABLA DE VIDEOJUEGOS-->
 	<table id="juegos" align="center">
