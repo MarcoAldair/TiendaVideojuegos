@@ -10,13 +10,13 @@
                                     FROM
                                         detallepedido
                                     WHERE
-                                        idPedido =(
+                                        idPedido IN (
                                         SELECT
                                             idPedido
                                         FROM
                                             pedido
                                         WHERE
-                                            idCliente =(
+                                            idCliente = (
                                             SELECT
                                                 idCliente
                                             FROM
@@ -83,13 +83,46 @@
                                 FROM
                                     videojuegos
                                 WHERE
-                                    idGame =(
+                                    idGame IN (
                                     SELECT
                                         idGame
                                     FROM
                                         estadovideojuego
                                     WHERE
                                         estado = 'ACEPTADO'
+                                )");
+			foreach($select->fetchAll() as $game){
+				$tmpGame = new Game();
+				$tmpGame->setidGame($game['idGame']);
+				$tmpGame->setGameName($game['nombre']);
+				$tmpGame->setgenero($game['genero']);
+				$tmpGame->setprecio($game['precio']);
+				$tmpGame->setidDev($game['idDev']);
+				$tmpGame->setdescripcion($game['Descripcion']);
+				$tmpGame->setportada($game['icon']);
+				$tmpGame->settrailer($game['trailer']);
+				$tmpGame->setimagenes($game['imagenes']);
+				$gameList[] = $tmpGame;
+			}
+			return $gameList;
+		}
+
+		public function showGameListNp()
+		{
+			$db=Db::conectar();
+			$gameList=[];
+			$select=$db->query("SELECT
+                                    *
+                                FROM
+                                    videojuegos
+                                WHERE
+                                    idGame IN (
+                                    SELECT
+                                        idGame
+                                    FROM
+                                        estadovideojuego
+                                    WHERE
+                                        estado != 'ACEPTADO'
                                 )");
 			foreach($select->fetchAll() as $game){
 				$tmpGame = new Game();

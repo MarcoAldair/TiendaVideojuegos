@@ -13,7 +13,7 @@
 	session_start();
 	$action = new Action();
 	if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'admin'){
-		$gameList = actionGame::showGameList();
+		$gameList = actionGame::showGameListNp();
 	}else{
 		$gameList = actionGame::showGameListAc();
 	}
@@ -91,18 +91,15 @@
 		<thead>
 			<th>Nombre Juego</th>
 			<th>Genero</th>
-			<th>Precio</th>
-			<th>Portada</th>
+			<th>Logo</th>
 		</thead>
 		<tbody>
 			<?php foreach ($gameList as $game) { ?>
 			<tr>
-				<!--<td><?php //echo $game->getidGame(); ?></td>-->
-				<td><a href="games/selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a"><?php echo $game->getGameName(); ?></a></td>
+				<td><a href="games/acceptGames.php?idGame=<?php echo $game->getidGame();?>"><?php echo $game->getGameName(); ?></a></td>
 				<td><?php echo $game->getgenero(); ?></td>
-				<td>$<?php echo $game->getprecio(); ?> Dólares</td>
 				<td>
-					<a href="games/selectGame.php?idGame=<?php echo $game->getidGame();?>&action=a">
+					<a href="games/acceptGames.php?idGame=<?php echo $game->getidGame();?>">
 						<?php echo '<img width="200" src="data:image;base64,'.base64_encode($game->getportada() ).' "/>'; ?>
 					</a>
 				</td>

@@ -51,5 +51,20 @@
 
             return $admin;
         }
+
+        public function apGame($idGame,$idAdmin)
+        {
+            $db = Db::conectar();
+            $update = $db->prepare("UPDATE
+                                        estadovideojuego
+                                    SET
+                                        idVerificador = :idVerificador ,
+                                        estado = 'ACEPTADO'
+                                    WHERE
+                                        idGame = :idGame ");
+            $update->bindValue('idVerificador',$idAdmin);
+            $update->bindValue('idGame',$idGame);
+            $update->execute();
+        }
     }
 ?>
