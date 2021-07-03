@@ -30,5 +30,26 @@
             $insert->bindValue('userName',$admin->getUserName());
             $insert->execute();
         }
+
+        public function getAdmin($id)
+        {
+            $db=Db::conectar();
+            $select = $db->prepare('SELECT * 
+                                    FROM encargadoverificacion 
+                                    WHERE idUser = :idUser');
+            $select->bindValue('idUser',$id);
+            $select->execute();
+            $datos = $select->fetch();
+            $admin = new admin();
+            $admin->setIdEncargado($datos['idEncargado']);
+            $admin->setNombre($datos['nombre']);
+            $admin->setApellido1($datos['apellido1']);
+            $admin->setApellido2($datos['apellido2']);
+            $admin->setTelefono($datos['telefono']);
+            $admin->setIdUser($datos['idUser']);
+            $admin->setUserName($datos['userName']);
+
+            return $admin;
+        }
     }
 ?>

@@ -57,9 +57,7 @@
 					<?php } ?>
 					<?php if($_SESSION['user']->getrole() == 'admin'){ ?>
 					<ul class="nav-menu">
-						<li class="nav-menu-item"><a href="#" class="submenu-item">Editar Perfil</a></li>
-						<li class="nav-menu-item"><a href="#" class="submenu-item">Juegos Subidos</a></li>
-						<li class="nav-menu-item"><a href="#" class="submenu-item">---</a></li>
+						<li class="nav-menu-item"><a href="userDetails.php" class="submenu-item">Editar Perfil</a></li>
 					</ul>
 					<?php } ?>
 				</li>
