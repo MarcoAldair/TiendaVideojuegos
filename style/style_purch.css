@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+body{
+  font-family: sans-serif;
+  padding: 135px 20px 0;
+}
+.cabecera{
+  background-color: #0097CC;
+  height: 90px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  font-family: serif;
+  color: white;
+  text-decoration: none;
+}
+
+ul li a {
+  font-family: sans-serif;
+  color: white;
+  text-decoration: none;
+}
+.logo{
+  font-size: 40px;
+  font-weight: bold;
+  padding: 0 40px;
+  line-height: 90px;
+}
+
+.nav-menu{
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+}
+
+.nav-menu-item{
+  font-size: 20px;
+  margin: 0 16px;
+  line-height: 90px;
+  /*text-transform: uppercase;*/
+  width: max-content;
+  font-family: sans-serif;
+}
+
+ul li a{
+  padding: 28px 28px;
+  border-radius: 5px;
+}
+
+ul li a:hover{
+  background-color: #007399;
+  transition: 0.5s;
+}
+.center{
+  margin: 0 auto;
+  width: 800px;
+  
+  background: white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+
+.center h1{
+  margin-top: 35px;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid silver;
+}
+.center form{
+  padding: 0 40px;
+  box-sizing: border-box;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/*CATALOGO DE JUEGOS*/
+
+table{
+  width: 70%;
+  margin: auto;
+  font-size: 20px;
+  clear: left;
+  border-collapse: collapse;
+  text-align: center;
+}
+table tbody tr:nth-child(odd) {
+  background-color: #EAEAEA;
+}
+
+table thead{
+  border-top: 2px solid #AEAEAE;
+  border-bottom: 2px solid #AEAEAE;
+}
+table tbody a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #0097CC;
+}
+table th{
+  padding: 15px;
+  background-color: #FFF;
+}
+table tbody td{
+  padding: 10px 0;
+}
+
+table tr:last-child{
+  border-bottom: 2px solid #AEAEAE; 
+}
+
+/*BOTON*/
+.button{
+    background-color: #0097CC;
+    font-weight: bold;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+.button:hover {
+    background-color: #007399;
+    transition: 0.5s;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+}
+.newgame{
+    margin: 0 auto;
+    text-align: center;
+}
+/*Submenu*/
+.nav-menu li ul{
+  background-color: #0097CC;
+  display: none;
+  position: absolute;
+  min-width: 205px;
+  padding: 0 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding-bottom: 6px;
+}
+
+.nav-menu li:hover > ul{
+  display: block;
+  margin: 0px;
+}
+
+.submenu-item{
+  font-size: 18px;
+}
+
+.registro1{
+   font-family: sans-serif;
+   font-size: 18px;
+   font-weight: bold;
+   padding: 15px 18px;
+   margin: 0 auto;
+   background-color: #2691d9;
+   color: #e9f4fb;
+   text-decoration: none;
+
+   border-radius: 25px;
+}
+
+.registro1:hover {
+  border-color: #2691d9;
+  transition: .5s;
+}
+
