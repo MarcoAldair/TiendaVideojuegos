@@ -7,16 +7,18 @@
     session_start();
     if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'admin'){
         if(isset($_POST['action'])){
+			$action = new actionAdmin();
             $id = $_POST['idGame'];
             $idAdmin = $_SESSION['role']->getIdEncargado();
-            actionAdmin::apGame($id,$idAdmin);
+            $action->apGame($id,$idAdmin);
             header('Location:../index.php');
         }
 
         if(isset($_GET['idGame'])){
             $idGame = $_GET['idGame'];
         }
-        $game = actionGame::obtenerJuego($idGame);
+		$actionGame = new actionGame();
+        $game = $actionGame->obtenerJuego($idGame);
 
 ?>
 <!DOCTYPE html>
