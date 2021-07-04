@@ -42,19 +42,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Catalogo de videojuegos</title>
+	<link rel="stylesheet" href="../style/style_catalogo.css">
 </head>
 <?php if(isset($_SESSION['user'])){ ?>
 <body>
-	<h1 id="titulo">Catalogo de videojuegos</h1>
-		<ul id="menu">
-			<li><a href="">Inicio</a></li>
+	<div class="cabecera">
+	<div class="nav">
+	<h1 class="logo" id="titulo">Catalogo de videojuegos</h1>
+		<ul id="menu"class="nav-menu">
+			<li><a class="nav-menu-item" href="../index.php">Inicio</a></li>
 			<li>
-				<a href="../userDetails.php">
+				<a class="nav-menu-item" href="../userDetails.php">
 					<?php echo $_SESSION['user']->getuserName() ; ?>
 				</a>
 			</li>
-			<li><a href="../cart.php?view">Carrito</a></li>
+			<li><a class="nav-menu-item" href="../cart.php?view">Carrito</a></li>
 		</ul>
+	</div>
+	</div>
+	<div class="center">
 	<?php foreach ($gameList as $game) { ?>
 		<div style="margin: 10px; border: 1px black solid;">
 			<form action="" method="post">
@@ -74,16 +80,23 @@
 				<div><input type="submit" name="add" value="Añadir"></div>
 			</form>
 		</div>
+	</div>
 	<?php }?>
 </body>
 <?php } else { ?>
 <body>
-	<ul id="menu">
-		<li><a href="">Inicio</a></li>
-		<li><a href="">Iniciar sesión</a></li>
+	<div class="cabecera">
+	<div class="nav">
+	<h1 class="logo" id="titulo">Catalogo de videojuegos</h1>
+	<ul id="menu" class="nav-menu">
+		<li><a class="nav-menu-item" href="../index.php">Inicio</a></li>
+		<li><a class="nav-menu-item" href="../logins/login.php">Iniciar sesión</a></li>
 	</ul>
-	<h2>debes iniciar sesion para ver el catalogo</h2>
-	<a href="../index.php">volver</a>
+	</div>
+	</div>
+	<h2 class="mensaje">Debes iniciar sesion para ver el catalogo</h2>
+	<br>
+	<a class="registro1" href="../index.php">volver</a>
 </body>
 <?php }?>
 </html>
