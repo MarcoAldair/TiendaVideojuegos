@@ -1,11 +1,33 @@
+<?php
+    include '../clases/user.php';
+    require_once('../clases/user.php');
+    session_start();
+    ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Juegos Comprados</title>
-    <link rel="stylesheet" href="../style/style_main_page.css">
+    <link rel="stylesheet" href="../style/style_purch.css">
 </head>
 <body>
+    
+    <div class="cabecera">
+    <div class="nav">
+    <h1 class="logo" id="titulo">Videojuegos adquiridos</h1>
+        <ul id="menu"class="nav-menu">
+            <li><a class="nav-menu-item" href="../index.php">Inicio</a></li>
+            <li>
+                <a class="nav-menu-item" href="../userDetails.php">
+                    <?php echo $_SESSION['user']->getuserName() ; ?>
+                </a>
+            </li>
+           
+        </ul>
+    </div>
+    </div>
+    
+
     <table id="juegos" align="center">
 		<thead>
 			<th>Nombre Juego</th>
@@ -15,10 +37,11 @@
 		</thead>
 		<tbody>
 <?php
+
     require_once('../clases/user.php');
     require_once('../clases/gameClass.php');
     require_once('../clases/actionGames.php');
-    session_start();
+   
     if(isset($_SESSION['user'])){
         $ag = new actionGame();
         $gamesId = $ag->viewPurchasedGames($_SESSION['user']->getidUser());
@@ -44,6 +67,6 @@
 ?>
         </tbody>
     </table>
-    <a href="../index.php">Volver</a>
+    <a class="registro1" href="../index.php">Volver</a>
 </body>
 </html>
