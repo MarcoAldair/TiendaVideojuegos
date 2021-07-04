@@ -32,6 +32,9 @@
 	if(isset($_SESSION['user'])){
 ?>
 <body>
+	<br>
+	<br>
+	<a href="index.php" class="registro1">Volver</a>
 	<div class="center" id="formRegistro">
 		<h1>Datos del usuario <?php echo $_SESSION['user']->getuserName(); ?> </h1>
 		<form action="" method="post" enctype='multipart/form-data'>
@@ -64,7 +67,7 @@
 			<br>
 			<div class="sesion">
 				<input  type="submit" value="Modificar" name="edit">
-				<a href="index.php">volver</a>
+				
 			</div>
 		</form>
 	</div>
@@ -74,7 +77,7 @@
 <body>
 <h1>Necesitar haber iniciado sesion</h1>
 
-<a href="index.php"> volver</a>	
+
 
 </body>
 <?php }  ?>
