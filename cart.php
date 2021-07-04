@@ -102,9 +102,13 @@
 		</tbody>
 	</table>
 	<form action="" method="post">
-		<input type="submit" value="Comprar" name="checkout">
+		
+		<input  type="submit" value="Comprar" name="checkout" class="boton1">
+	
 	</form>
+
 	<form action="index.php">
+		<br>
 		<input type="submit" name="" value="Volver" class="button">
 	</form>
 </body>
