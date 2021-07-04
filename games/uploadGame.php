@@ -8,6 +8,7 @@
 	if(isset($_POST['upload']) && isset($_SESSION['user'])){
 		$game = new Game();
 		$action = new actionDev();
+		$action2 = new Action();
 		$dev = $action->getDev($_SESSION['user']->getidUser());
 		$nombre = $_POST['gameName'];
 		$genero = $_POST['genero'];
@@ -18,7 +19,7 @@
 		$trailer = file_get_contents($_FILES['trailerTemp']['tmp_name']);
 		$imagenes = file_get_contents($_FILES['gameplayTemp']['tmp_name']);
 
-		$game->setidGame(Action::getcantidadGames()+1);
+		$game->setidGame($action2->getcantidadGames()+1);
 		$game->setGameName($nombre);
 		$game->setgenero($genero);
 		$game->setprecio($precio);
