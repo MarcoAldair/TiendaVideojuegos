@@ -7,9 +7,26 @@
 body{
   background-size: cover;
   background-attachment: fixed;
-  background: linear-gradient(120deg,#2980b9, #8e44ad);
+  background: linear-gradient(120deg,#8e44ad,#2980b9);
   background-repeat: no-repeat;
   background-position: center center;
+}
+.registro1{
+
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 18px;
+  margin-top: 20px;
+  background-color: #2691d9;
+  color: #e9f4fb;
+  text-decoration: none;
+  border-radius: 25px;
+}
+
+.registro1:hover {
+  border-color: white;
+  transition: .5s;
 }
 .center{
   margin: 0 auto;
@@ -105,8 +122,6 @@ input[type="submit"]:hover{
   transition: .5s;
 }
 
-
-
 select {
    background: transparent;
    border: none;
@@ -116,4 +131,5 @@ select {
    width: 250px;
 }
 select:focus{ outline: none;}
+
 
