@@ -11,11 +11,11 @@
 	require_once('clases/gameClass.php');
 	require_once('clases/actionGames.php');
 	session_start();
-	$action = new Action();
+	$action = new actionGame();
 	if(isset($_SESSION['user']) && $_SESSION['user']->getrole() == 'admin'){
-		$gameList = actionGame::showGameListNp();
+		$gameList = $action->showGameListNp();
 	}else{
-		$gameList = actionGame::showGameListAc();
+		$gameList = $action->showGameListAc();
 	}
 
 	if(isset($_GET['close'])){
