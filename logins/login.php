@@ -39,6 +39,9 @@
 	<link rel="stylesheet" href="../style/style_login.css">
 </head>
 <body>
+	<br>
+	<br>
+	<a href="../index.php" class="registro1">Inicio</a>
 	<div class="center">
 		<h1>Inicio de sesion</h1>
 		<form action="" method="post">
@@ -64,10 +67,11 @@
 			<div class="sesion">
 				<input type="submit" value="Iniciar sesion" name="login">
 			</div>
-
 			<div class="NuevoUsuario">
 				<a href="signupS.php" class="registro1">Registrarse</a>
 			</div>
+			<br>
+
 		</form>
 	</div>
 </body>
