@@ -115,3 +115,25 @@ table tbody tr:nth-child(odd) {
 #carritoVacio{
   margin-top: -110px;
 }
+.boton1{
+  background-color: green;
+  margin-top: 10px;
+  margin-left: 40%;
+  font-weight: bold;
+  border: none;
+  color: white;
+  padding: 0.4em 2.5em 0.4em 2.5em;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 6px;
+  align-content: center;
+}
+
+.boton1:hover {
+  background-color: lightgreen;
+    transition: 0.5s;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+}
