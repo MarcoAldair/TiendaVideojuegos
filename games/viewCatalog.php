@@ -3,10 +3,11 @@
 	include('../clases/cartClass.php');
 	require_once('../clases/gameClass.php');
 	require_once('../clases/action.php');
+	require_once('../clases/actionGames.php');
 	session_start();
-	$action = new Action();
+	$action = new actionGame();
 	$cart = new Cart();
-	$gameList = $action->showGameList();
+	$gameList = $action->showGameListAc();
 
 	if(isset($_POST['add'])){
 		$gameId = $_POST['gameId'];

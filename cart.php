@@ -8,9 +8,14 @@
 </head>
 <?php
 	include('clases/cartClass.php');
+	require_once('clases/customer.php');
+	require_once('clases/pago.php');
+	require_once('clases/pedido.php');
+	require_once('clases/detallePedido.php');
 	require_once('clases/gameClass.php');
 	require_once('clases/action.php');
-	$action = new Action();
+	require_once('clases/user.php');
+	require_once('clases/actionCustomer.php');
 	session_start();
 	if(isset($_GET['delete'])){
 		foreach ($_SESSION['elemtosCarrito'] as $key => $value) {
@@ -23,6 +28,41 @@
 		}
 		header('location: cart.php?view');
 	}
+
+	if(isset($_POST['checkout']) && $_SESSION['user']->getrole()=='cus'){
+		$total = 0;
+		foreach ($_SESSION['elemtosCarrito'] as $key => $cart) {
+			$total = $total + $cart->getGameTotal() ;
+		}
+		$pago = new pago();
+		$pedido = new pedido();
+		$actionGame = new actionCustomer();
+		//pago
+		$pago->setIdPago($actionGame->getcantidadPagos()+1);
+		$pago->setFecha(date("Y-m-d"));
+		$pago->setTotal($total);
+		$pago->setEstadoPago('ACEPTADO');
+		$actionGame->insertPago($pago);
+		//pedido
+		$pedido->setIdPedido($actionGame->getcantidadPedidos()+1);
+		$pedido->setIdCliente($_SESSION['role']->getIdCliente());
+		$pedido->setFechaPedido(date("Y-m-d"));
+		$actionGame->insertPedido($pedido);
+		//detalle del pedido
+		foreach ($_SESSION['elemtosCarrito'] as $key => $cart) {
+			$detallePedido = new detallePedido();
+			$detallePedido->setIdDetallePedido($actionGame->getcantidadDPedidos()+1);
+			$detallePedido->setEstadoPedido('ACEPTADO');
+			$detallePedido->setIdGame($cart->getGameId());
+			$detallePedido->setFechaDetallePedido(date("Y-m-d"));
+			$detallePedido->setIdPago($pago->getIdPago());
+			$detallePedido->setIdPedido($pedido->getIdPedido());
+			$actionGame->insertDetalle($detallePedido);
+		}
+		unset($_SESSION['elemtosCarrito']);
+		header('location: games/viewPurchasedGames.php');
+	}
+
 	if(isset($_GET['view']) && isset($_SESSION['elemtosCarrito'])){
 ?>
 <body>
@@ -61,6 +101,9 @@
 			<?php }?>
 		</tbody>
 	</table>
+	<form action="" method="post">
+		<input type="submit" value="Comprar" name="checkout">
+	</form>
 	<form action="index.php">
 		<input type="submit" name="" value="Volver" class="button">
 	</form>

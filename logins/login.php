@@ -5,6 +5,7 @@
 	include '../clases/actionAdmin.php';
 	include '../clases/user.php';
 	include '../clases/dev.php';
+	include '../clases/customer.php';
 	include '../clases/admin.php';
 	$action = new Action();
 	if(isset($_POST['login'])){

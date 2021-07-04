@@ -12,6 +12,30 @@ class actionCustomer{
 		return $q->fetchColumn();
 	}
 
+	public function getcantidadPagos()
+	{
+		$db=Db::conectar();
+		$q = $db->prepare('SELECT count(*) FROM pago');
+		$q->execute();
+		return $q->fetchColumn();
+	}
+
+	public function getcantidadPedidos()
+	{
+		$db=Db::conectar();
+		$q = $db->prepare('SELECT count(*) FROM pedido');
+		$q->execute();
+		return $q->fetchColumn();
+	}
+
+	public function getcantidadDPedidos()
+	{
+		$db=Db::conectar();
+		$q = $db->prepare('SELECT count(*) FROM detallepedido');
+		$q->execute();
+		return $q->fetchColumn();
+	}
+
 	public function insertCus($customer)
 	{
 		$db=Db::conectar();
@@ -53,6 +77,43 @@ class actionCustomer{
         $cus->setIdUser($datos['idUser']);
         $cus->setUserName($datos['userName']);
 		return $cus;
+	}
+
+	public function insertPago($pago)
+	{
+		$db = Db::conectar();
+		$insert = $db->prepare('INSERT INTO pago
+								VALUES(:IdPago,:Fecha,:Total,:EstadoPago)');
+		$insert->bindValue('IdPago',$pago->getIdPago());
+		$insert->bindValue('Fecha',$pago->getFecha());
+		$insert->bindValue('Total',$pago->getTotal());
+		$insert->bindValue('EstadoPago',$pago->getEstadoPago());
+		$insert->execute();
+	}
+
+	public function insertPedido($pedido)
+	{
+		$db = Db::conectar();
+		$insert = $db->prepare('INSERT INTO pedido
+								VALUES(:idPedido,:idCliente,:fechaPedido)');
+		$insert->bindValue('idPedido',$pedido->getIdPedido());
+		$insert->bindValue('idCliente',$pedido->getIdCliente());
+		$insert->bindValue('fechaPedido',$pedido->getFechaPedido());
+		$insert->execute();
+	}
+
+	public function insertDetalle($detallePedido)
+	{
+		$db = Db::conectar();
+		$insert = $db->prepare('INSERT INTO detallepedido 
+								VALUES (:idDetallePedido,:estadoPedido,:idGame,:fechaDetallePedido,:idPago,:idPedido)');
+		$insert->bindValue('idDetallePedido',$detallePedido->getIdDetallePedido());
+		$insert->bindValue('estadoPedido',$detallePedido->getEstadoPedido());
+		$insert->bindValue('idGame',$detallePedido->getIdGame());
+		$insert->bindValue('fechaDetallePedido',$detallePedido->getFechaDetallePedido());
+		$insert->bindValue('idPago',$detallePedido->getIdPago());
+		$insert->bindValue('idPedido',$detallePedido->getIdPedido());
+		$insert->execute();
 	}
 }
 
