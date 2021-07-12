@@ -52,6 +52,7 @@ ul li a{
   border-radius: 5px;
 }
 
+
 ul li a:hover{
   background-color: #007399;
   transition: 0.5s;
@@ -136,4 +137,10 @@ table tbody tr:nth-child(odd) {
     color: white;
     cursor: pointer;
     font-weight: bolder;
+}
+.tarjeta{
+  width: 380px;
+  margin: auto;
+  margin-bottom: .5em;
+  clear: left;
 }
