@@ -41,6 +41,7 @@
 	<link rel="stylesheet" href="../style/style_upload.css">
 </head>
 <body>
+	<a href="viewDevGames.php" class="registro1">Regresar</a>
 	<div class="center" id="formRegistro">
 		<h1><?php echo $game->getGameName(); ?> </h1>
 		<form action="" method="post" enctype='multipart/form-data'>
@@ -101,7 +102,7 @@
 					<br>
 			<div class="sesion">
 				<input type="submit" value='Actualizar' name='edit'>
-				<a href="viewDevGames.php" class="registro1">Regresar</a>
+				
 			</div>
 		</form>
 	</div>
