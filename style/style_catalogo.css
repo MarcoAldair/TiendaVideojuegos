@@ -66,9 +66,9 @@ ul li a:hover{
 }
 .center{
   margin: 0 auto;
-  width: 800px;
+  width: 700px;
   
-  background: white;
+  background: lightblue;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
@@ -87,6 +87,11 @@ ul li a:hover{
   margin-bottom: 20px;
 }
 /*CATALOGO DE JUEGOS*/
+
+.juegos{
+  margin: 10px; 
+  border: 1px black solid;
+}
 
 table{
   width: 70%;
