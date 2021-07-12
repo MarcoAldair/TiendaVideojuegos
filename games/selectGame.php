@@ -83,9 +83,11 @@
 	</div>
 
 	<div>
-		<video width="848" height="480" controls>
-			<?php echo '<source src="data:image;base64,'.base64_encode($game->gettrailer() ).' " type="video/mp4">'; ?>
-		</video>
+		<center>
+			<video width="848" height="480" controls>
+				<?php echo '<source src="data:image;base64,'.base64_encode($game->gettrailer() ).' " type="video/mp4">'; ?>
+			</video>
+		</center>
 	</div>
 
 	<!--AÑADIR AL CARRITO-->
