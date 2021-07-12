@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="../style/style_upload.css">
 </head>
 <body>
+	<a href="../index.php" class="registro1">Regresar</a>
 <div class="center" id="formRegistro">
 		<h1><?php echo $game->getGameName(); ?> </h1>
 		<form action="" method="post" enctype='multipart/form-data'>
@@ -75,7 +76,7 @@
 
 			<div class="sesion">
 				<input type="submit" value='Aprobar' name='action'>
-				<a href="../index.php" class="registro1">Regresar</a>
+				
 			</div>
 		</form>
 	</div>
