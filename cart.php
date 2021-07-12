@@ -17,6 +17,7 @@
 	require_once('clases/user.php');
 	require_once('clases/actionCustomer.php');
 	session_start();
+	$totalPagar = 0;
 	if(isset($_GET['delete'])){
 		foreach ($_SESSION['elemtosCarrito'] as $key => $value) {
 			if($value->getGameId() == $_GET['delete']){
@@ -80,6 +81,7 @@
 		</div>
 	</div>
 	<!--Carrito-->
+	
 	<h2>Carrito de compra</h2>
 	<table>
 		<thead>
@@ -97,11 +99,28 @@
 				<td><?php echo $cart->getGameQuantity() ;?></td>
 				<td><?php echo $cart->getGameTotal() ;?></td>
 				<td><a href="?delete=<?php echo $cart->getGameId(); ?>"><img src="icons/delete.png" height = "26"></a></td>
+				<?php $totalPagar= $totalPagar + $cart->getGameTotal();?>
 			</tr>
 			<?php }?>
+			<tr>
+				<td colspan="3">Total a pagar</td>
+				<td><?php echo $totalPagar ;?></td>
+				<td>Dolares</td>
+
+			</tr>
 		</tbody>
 	</table>
+	<br>
+
+	
 	<form action="" method="post">
+		<h2>Dato de pago</h2>
+
+			<div class="tarjeta">
+				<label for="">Numero de tarjeta</label>
+				<input type="text" name="tarjeta" required>
+			</div>
+			<br>
 		
 		<input  type="submit" value="Comprar" name="checkout" class="boton1">
 	
