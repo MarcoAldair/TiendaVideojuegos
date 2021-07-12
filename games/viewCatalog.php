@@ -61,8 +61,9 @@
 	</div>
 	</div>
 	<div class="center">
+		<div class="juegos">
 	<?php foreach ($gameList as $game) { ?>
-		<div style="margin: 10px; border: 1px black solid;">
+		
 			<form action="" method="post">
 				<div>
 					<input readonly type="hidden" name="gameId" value="<?php echo $game->getidGame();?>">
@@ -79,9 +80,10 @@
 				<div><input type="number" min="1" name="gameQuantity" value="1"></div>
 				<div><input type="submit" name="add" value="Añadir"></div>
 			</form>
+	
+	<?php }?>
 		</div>
 	</div>
-	<?php }?>
 </body>
 <?php } else { ?>
 <body>
